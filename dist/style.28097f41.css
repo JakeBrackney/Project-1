@@ -9530,11 +9530,15 @@ header {
 }
 
 .gameboard {
-  height: 800px;
+  display: table;
+  height: 500px;
   width: 800px;
   border: 1px solid black;
 }
-.gameboard .pole {
+.gameboard .row {
+  vertical-align: bottom;
+}
+.gameboard .col-4, .gameboard .col-12 {
   text-align: center;
 }
 .gameboard .towerBase {
@@ -9553,6 +9557,11 @@ header {
 }
 .gameboard .towerBase .text {
   padding: 0 110px 0 110px;
+}
+
+.ring:active {
+  box-sizing: border-box;
+  box-shadow: 1px blue;
 }
 
 .ringOne {
