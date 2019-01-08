@@ -17,18 +17,18 @@ let towerThree = []
 
 //logic to compare size of the ring being moved vs the ring it's being placed on
 
-if (ring1 < ring2) {
+// if (ring1 < ring2) {
 
-}
+// }
 
 
 // logic to evaluate win status (all rings on towerThree)
 
-function gameOver() {
-    if (towerThree = rings) {
-    console.log('Winner!')
-    }
-}
+// function gameOver() {
+//     if (towerThree = rings) {
+//     console.log('Winner!')
+//     }
+// }
 
 
 
