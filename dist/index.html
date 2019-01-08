@@ -9,5 +9,33 @@
   <script src="/style.28097f41.js"></script></head>
   <body></body>
   <header>Towers of Hanoi!</header>
-  <div class="container"></div>
+  <div class="container rules">
+    <p>
+      <ul>
+        <li>Move all the pieces from Tower 1 to Tower 3</li>
+        <li>You may not place a larger piece on top of a smaller piece</li>
+      </ul>
+    </p>
+  </div>
+  <div class="container gameboard">
+    <div class="row">
+      <div class="col-4 pole startPole"> 
+        <div class="ringOne"></div>
+        <div class="ringTwo"></div>
+        <div class="ringThree"></div>
+      </div>
+      <div class="col-4 pole midPole"> </div>
+      <div class="col-4 pole endPole"> </div>
+    </div>
+    <div class="row">
+      <div class="col-12 base">
+        <div class="towerBase"> 
+          <div class="text">1</div>
+          <div class="text">2</div>
+          <div class="text">3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </html>

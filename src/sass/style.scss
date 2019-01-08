@@ -1,5 +1,77 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-header {
-    text-align: center;
+
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+header {
+	text-align: center;
+	font-size: 48px;
+}
+
+.rules {
+	height: 100px;
+	width: 800px;
+	text-align: center;
+	ul {
+		list-style-type: none;
+	}
+}
+
+
+
+.gameboard {
+	height: 800px;
+	width: 800px;
+	border: 1px solid black;
+	.pole {
+		text-align: center;
+	}
+	.towerBase {
+		display: flex;
+		background-image: repeating-linear-gradient(brown, white 10%, rgb(255, 162, 0) 20%);
+		height: 40px;
+		width: 750px;
+		border-radius: 20px;
+		margin: 1px;
+		flex-direction: row;
+		justify-content: space-between;
+		font-size: 25px;
+		font-weight: 800;
+		color: rgb(137, 55, 4);
+		text-shadow: 1px 1px rgb(55, 52, 52);
+		.text {
+			padding: 0 110px 0 110px;
+		}
+	}
+}
+
+
+
+.ringOne {
+	display: inline-block;
+	background-image: linear-gradient(to bottom right, rgb(249, 66, 0), rgba(255, 191, 0, 0.681));
+	height: 40px;
+	width: 100px;
+	border-radius: 20px;
+}
+
+.ringTwo {
+	display: inline-block;
+	background-image: linear-gradient(to bottom right, rgb(249, 66, 0), rgba(255, 191, 0, 0.681));
+	height: 40px;
+	width: 150px;
+	border-radius: 20px;
+}
+
+.ringThree {
+	display: inline-block;
+	background-image: linear-gradient(to bottom right, rgb(249, 66, 0), rgba(255, 191, 0, 0.681));
+	height: 40px;
+	width: 200px;
+	border-radius: 20px;
+}
+
+
+
