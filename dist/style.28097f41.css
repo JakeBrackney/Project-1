@@ -13,8 +13,8 @@ body header ul {
 }
 body input {
   display: block;
-  border: 1px solid #514343;
   margin: 0 auto;
+  outline: none;
 }
 body #gameboard {
   position: relative;
