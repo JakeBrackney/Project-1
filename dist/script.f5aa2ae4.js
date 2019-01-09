@@ -106,17 +106,28 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"../js/script.js":[function(require,module,exports) {
 // rings, array?
-var rings = [1, 2, 3];
-var towerOne = [];
-var towerTwo = [];
-var towerThree = []; // Game moves = push piece from one array to the next
-// let ringOne = document.querySelector('.ringOne')
-// ringOne.addEventListener('click', function changeTower() {
-//     if (towerTwo[0] < ringOne) {
-//         towerTwo.push(ringOne)
-//         console.log(towerTwo)
-//     }
+var numberOfRings = document.querySelector('#discQty');
+var setDifficulty = document.querySelector('.setDifficulty');
+var discs = document.querySelector('.discs'); // numberOfRings.addEventListener('click', function() {
+// 	let newDiscs = input.value
+// 	discs = newDiscs
 // })
+// for (let i = 0; i < 8; i++) {
+// 	let discsInPlay = document.createElement('div')
+// 	discsInPlay.className = '.discs'
+// 	document.getElementsByClassName('.towerOne')[0].appendChild(discsInPlay).innerHTML
+// }
+// function setDiscs() {
+// }
+// let towerOne = []
+// let towerTwo = []
+// let towerThree = []
+
+discs.addEventListener('click', function moveDisc() {
+  var fragment = document.getElementsByClassName('.discs'); // fragment.appendChild(document.getElementById('#towerOne'))
+
+  document.querySelectorAll('.tower').appendChild(fragment);
+}); // Game moves = push piece from one array to the next
 //logic to compare size of the ring being moved vs the ring it's being placed on
 // if (ring1 < ring2) {
 // }
@@ -156,7 +167,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59932" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49681" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

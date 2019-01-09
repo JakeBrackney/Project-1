@@ -19,14 +19,23 @@
   </header>
   <div class="controls">
     <form id="form">
-      <input placeholder="# of discs" type="text">
+      <input placeholder="# of discs" type="text" id="discQty">
+      <button class="setDifficulty">set difficulty</button>
     </form>
   </div>
   <div class="container" id="gameboard">
     <div class="row">
-      <div class="tower"></div>
-      <div class="tower"></div>
-      <div class="tower"></div>
+      <div class="container towerContainer">
+        <div class="tower">
+          <div class="discs"></div>
+        </div>
+      </div>
+      <div class="container towerContainer">
+        <div class="tower"></div>
+      </div>
+      <div class="container towerContainer">
+        <div class="tower"></div>
+      </div>
     </div>
   </div>
   <script src="/script.f5aa2ae4.js"></script>

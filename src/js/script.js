@@ -1,19 +1,37 @@
 // rings, array?
-const rings = [1, 2, 3]
+let numberOfRings = document.querySelector('#discQty')
+let setDifficulty = document.querySelector('.setDifficulty')
+let discs = document.querySelector('.discs')
 
-let towerOne = []
-let towerTwo = []
-let towerThree = []
+
+
+// numberOfRings.addEventListener('click', function() {
+// 	let newDiscs = input.value
+// 	discs = newDiscs
+// })
+
+// for (let i = 0; i < 8; i++) {
+// 	let discsInPlay = document.createElement('div')
+// 	discsInPlay.className = '.discs'
+// 	document.getElementsByClassName('.towerOne')[0].appendChild(discsInPlay).innerHTML
+// }
+
+// function setDiscs() {
+
+// }
+
+// let towerOne = []
+// let towerTwo = []
+// let towerThree = []
+
+discs.addEventListener('click', function moveDisc() {
+	let fragment = document.getElementsByClassName('.discs') 
+	// fragment.appendChild(document.getElementById('#towerOne'))
+	document.querySelectorAll('.tower').appendChild(fragment)
+})
 
 // Game moves = push piece from one array to the next
 
-// let ringOne = document.querySelector('.ringOne')
-// ringOne.addEventListener('click', function changeTower() {
-//     if (towerTwo[0] < ringOne) {
-//         towerTwo.push(ringOne)
-//         console.log(towerTwo)
-//     }
-// })
 
 //logic to compare size of the ring being moved vs the ring it's being placed on
 

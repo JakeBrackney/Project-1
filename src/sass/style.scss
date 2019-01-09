@@ -15,41 +15,79 @@ body {
 			list-style-type: none;
 		}
 	}
-	input {
-		display: block;
-		margin: 0 auto;
-		outline: none;
+	.controls{
+		display: inline;
+		form {
+			text-align: center;
+			input {
+				display: block;
+				text-align: center;
+				margin: 0 auto;
+				outline: none;
+				height: 20px;
+				font-size: 15px;
+				font-family: 'Cultive Mono', monospace;
+			}
+			button {
+				display: block;
+				margin: 0 auto;
+				font-family: 'Cultive Mono', monospace;
+				color: rgb(81, 67, 67);
+				button:focus {
+					background-color: rgb(81, 67, 67);
+				}
+			}
+		}
 	}
+	
 	#gameboard {
 		position: relative;
 		margin: 0 auto;
 		height: 400px;
 		width: 800px;
-		border-bottom: 5px solid rgb(81, 67, 67);
+		border-bottom: 8px solid rgb(81, 67, 67);
 		.row {
 			margin: 0 auto;
 			display: flex;
 			justify-content: space-between;
 			position: absolute;
 			bottom: 10px;
-			.tower {
-				@include dimensions($width: 150px, $height: 165px);
+			.tower { 
+				// Highly influenced by https://codepen.io/eliortabeka/pen/yOrrxG, including mixin at line 1
+				@include dimensions($width: 150px, $height: 265px);
 				border-bottom: 8px solid rgb(81, 67, 67);
 				position: relative;
 				text-align: center;
 				padding: 0;
-				margin: 0 175px 0 0;
+				margin: 0 125px 0 25px;
 				flex-direction: row;
 				align-items: center;
 				&:before {
-					@include dimensions($width: 8px, $height: 165px);
+					@include dimensions($width: 8px, $height: 265px);
 					content: '';
 					background: rgb(81, 67, 67);
 					position: absolute;
 					left: 50%;
 					z-index: 10;
+					}
+				}
+				.discs {
+					position: absolute;
+					bottom: 5px;
+					background-image: linear-gradient(to right, rgb(110, 100, 100), rgb(58, 58, 58), black, rgb(225, 225, 225), rgb(91, 89, 89), rgb(110, 100, 100), rgb(138, 132, 132), rgb(255, 255, 255), rgb(142, 142, 142));
+					height: 15px;
+					width: 146px;
+					border: 2px rgb(171, 168, 168);
+					border-style: groove;
+					border-radius: 30%;
+					z-index: 20;
+					}
+					.discs:active {
+						background: rgba(110, 130, 174, 0.612);
 				}
 			}
 		}
 	}
-}
+
+	
+

@@ -1,19 +1,23 @@
 header Tower of Hanoi
 	.container.rules
-			ul
-				li Move all the pieces from Tower 1 to Tower 3
-				li You may not place a larger piece on top of a smaller piece
+		ul
+			li Move all the pieces from Tower 1 to Tower 3
+			li You may not place a larger piece on top of a smaller piece
 
 .controls
 	form#form
-		input(placeholder='# of discs' type='text')
+		input(placeholder='# of discs' type='text' id='discQty')
+		button.setDifficulty set difficulty
 
 .container#gameboard
 	.row
-		.tower
-		.tower
-		.tower
-			
-			
+		.container.towerContainer
+			.tower
+				.discs
+		.container.towerContainer
+			.tower
+		.container.towerContainer
+			.tower
+
 
 

@@ -11,17 +11,36 @@ body header ul {
   font-size: 18px;
   list-style-type: none;
 }
-body input {
+body .controls {
+  display: inline;
+}
+body .controls form {
+  text-align: center;
+}
+body .controls form input {
   display: block;
+  text-align: center;
   margin: 0 auto;
   outline: none;
+  height: 20px;
+  font-size: 15px;
+  font-family: "Cultive Mono", monospace;
+}
+body .controls form button {
+  display: block;
+  margin: 0 auto;
+  font-family: "Cultive Mono", monospace;
+  color: #514343;
+}
+body .controls form button button:focus {
+  background-color: #514343;
 }
 body #gameboard {
   position: relative;
   margin: 0 auto;
   height: 400px;
   width: 800px;
-  border-bottom: 5px solid #514343;
+  border-bottom: 8px solid #514343;
 }
 body #gameboard .row {
   margin: 0 auto;
@@ -32,21 +51,35 @@ body #gameboard .row {
 }
 body #gameboard .row .tower {
   width: 150px;
-  height: 165px;
+  height: 265px;
   border-bottom: 8px solid #514343;
   position: relative;
   text-align: center;
   padding: 0;
-  margin: 0 175px 0 0;
+  margin: 0 125px 0 25px;
   flex-direction: row;
   align-items: center;
 }
 body #gameboard .row .tower:before {
   width: 8px;
-  height: 165px;
+  height: 265px;
   content: "";
   background: #514343;
   position: absolute;
   left: 50%;
   z-index: 10;
+}
+body #gameboard .row .discs {
+  position: absolute;
+  bottom: 5px;
+  background-image: linear-gradient(to right, #6e6464, #3a3a3a, black, #e1e1e1, #5b5959, #6e6464, #8a8484, white, #8e8e8e);
+  height: 15px;
+  width: 146px;
+  border: 2px #aba8a8;
+  border-style: groove;
+  border-radius: 30%;
+  z-index: 20;
+}
+body #gameboard .row .discs:active {
+  background: rgba(110, 130, 174, 0.612);
 }
