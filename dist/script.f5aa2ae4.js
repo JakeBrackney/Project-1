@@ -106,9 +106,61 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"../js/script.js":[function(require,module,exports) {
 // rings, array?
-var numberOfRings = document.querySelector('#discQty');
-var setDifficulty = document.querySelector('.setDifficulty');
-var discs = document.querySelector('.discs'); // numberOfRings.addEventListener('click', function() {
+// let numberOfRings = document.querySelector('#discQty')
+// let setDifficulty = document.querySelector('.setDifficulty')
+// let discs = document.querySelector('.discs')
+var towerOne = [];
+var towerTwo = [];
+var towerThree = [];
+var button = document.querySelectorAll('button');
+
+function onGameStart() {
+  var discOne = document.createElement('div');
+  var discTwo = document.createElement('div');
+  var discThree = document.createElement('div');
+  var discFour = document.createElement('div');
+  var discFive = document.createElement('div');
+  discOne.className = 'discs';
+  discTwo.className = 'discs';
+  discThree.className = 'discs';
+  discFour.className = 'discs';
+  discFive.className = 'discs';
+  discOne.id = 'discOne';
+  discTwo.id = 'discTwo';
+  discThree.id = 'discThree';
+  discFour.id = 'discFour';
+  discFive.id = 'discFive';
+  document.querySelector('#towerOne').appendChild(discOne);
+  document.querySelector('#towerOne').appendChild(discTwo);
+  document.querySelector('#towerOne').appendChild(discThree);
+  document.querySelector('#towerOne').appendChild(discFour);
+  document.querySelector('#towerOne').appendChild(discFive);
+  towerOne.push([discOne, discTwo, discThree, discFour, discFive]);
+  console.log(towerOne);
+}
+
+onGameStart();
+
+var startPoint = function startPoint() {
+  var executed = false;
+  return function () {
+    if (!executed) {
+      executed = true;
+    }
+  };
+}; // function setDifficulty() {
+// }
+// removeChild ---> Google it
+//once game starts set towerOne array to [discOne etc]
+//why is onGameStart still running
+// for (let i = 0; i < button.length; i++) {
+// 	button[i].addEventListener('click', function(evt) {
+// 		evt.preventDefault
+// 		console.log('Clicked!')
+// 		towerOne.shift[0]
+// 	})
+// }
+// numberOfRings.addEventListener('click', function() {
 // 	let newDiscs = input.value
 // 	discs = newDiscs
 // })
@@ -119,15 +171,7 @@ var discs = document.querySelector('.discs'); // numberOfRings.addEventListener(
 // }
 // function setDiscs() {
 // }
-// let towerOne = []
-// let towerTwo = []
-// let towerThree = []
-
-discs.addEventListener('click', function moveDisc() {
-  var fragment = document.getElementsByClassName('.discs'); // fragment.appendChild(document.getElementById('#towerOne'))
-
-  document.querySelectorAll('.tower').appendChild(fragment);
-}); // Game moves = push piece from one array to the next
+// Game moves = push piece from one array to the next
 //logic to compare size of the ring being moved vs the ring it's being placed on
 // if (ring1 < ring2) {
 // }
@@ -167,7 +211,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49681" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52316" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
