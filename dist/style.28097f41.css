@@ -47,7 +47,7 @@ body .towerContainer .discs {
   bottom: 28px;
   margin-top: 4px;
   background-image: linear-gradient(to right, #535b5c, #858585, #e1e1e1, #484d5b, #64656e, #8a8484, white, darkgray);
-  height: 25px;
+  height: 22px;
   border: 2px #aba8a8;
   border-style: groove;
   border-radius: 30%;

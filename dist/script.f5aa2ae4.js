@@ -152,7 +152,7 @@ var _loop = function _loop(i) {
       readyToMove = true;
       moveDisc.removeChild(discs)[0]; //need to grab by first child
     } else if (readyToMove === true) {
-      discs.insertBefore(discs, evt.currentTarget); //tower one, tower two)
+      evt.currentTarget.appendChild(discs); //tower one, tower two)
     } else {
       readyToMove === false;
     }
@@ -211,7 +211,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62561" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50489" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

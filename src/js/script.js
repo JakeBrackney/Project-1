@@ -50,7 +50,7 @@ for (let i = 0; i < 3; i++) {
 		readyToMove = true
 		moveDisc.removeChild(discs)[0] //need to grab by first child
 	} else if (readyToMove === true) {
-		discs.insertBefore(discs, evt.currentTarget)//tower one, tower two)
+		evt.currentTarget.appendChild(discs)//tower one, tower two)
 		
 	} else {
 		readyToMove === false
