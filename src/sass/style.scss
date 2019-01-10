@@ -30,19 +30,25 @@ body {
 		margin: 0 auto;
 		height: 240px;
 		width: 700px;
+		// border: 1px solid black;
 			}
 			.towerContainer {
+				display: flex;
 				position: relative;
+				align-items: center;
+				justify-content: flex-end;
+				bottom: 28px;
 				margin: 0 auto;
 				width: 33.33333%;
 				height: 180px;
-				border: 1px solid black;
-				display: inline-block;
+				// border: 1px solid black;
+				// display: inline-block;
 				flex-direction: column;
 				.discs {
-					position: absolute;
+					// position: absolute;
 					bottom: 28px;
-					background-image: linear-gradient(to right, rgb(110, 100, 100), rgb(58, 58, 58), black, rgb(225, 225, 225), rgb(91, 89, 89), rgb(110, 100, 100), rgb(138, 132, 132), rgb(255, 255, 255), rgb(142, 142, 142));
+					margin-top: 4px;
+					background-image: linear-gradient(to right, rgb(100, 109, 110), rgb(99, 99, 99), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169));
 					height: 15px;
 					border: 2px rgb(171, 168, 168);
 					border-style: groove;

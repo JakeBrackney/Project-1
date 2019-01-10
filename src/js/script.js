@@ -1,52 +1,76 @@
-// rings, array?
-// let numberOfRings = document.querySelector('#discQty')
-// let setDifficulty = document.querySelector('.setDifficulty')
-// let discs = document.querySelector('.discs')
+let towerOne = document.querySelector('#towerOne')
+let towerTwo = document.querySelector('#towerTwo')
+let towerThree = document.querySelector('#towerThree')
 
-let towerOne = []
-let towerTwo = []
-let towerThree = []
+// let t1 = []
+// let t2 = []
+// let t3 = []
 
-const button = document.querySelectorAll('button')
+let discOne = document.createElement('div')
+let discTwo = document.createElement('div')
+let discThree = document.createElement('div')
+let discFour = document.createElement('div')
+discOne.className = 'discs'
+discTwo.className = 'discs'
+discThree.className = 'discs'
+discFour.className = 'discs'
+discOne.id = 'discOne'
+discTwo.id = 'discTwo' 
+discThree.id = 'discThree'
+discFour.id = 'discFour'
+
+let readyToMove = false;
 
 function onGameStart() {
-	let discOne = document.createElement('div')
-	let discTwo = document.createElement('div')
-	let discThree = document.createElement('div')
-	let discFour = document.createElement('div')
-	discOne.className = 'discs'
-	discTwo.className = 'discs'
-	discThree.className = 'discs'
-	discFour.className = 'discs'
-	discOne.id = 'discOne'
-	discTwo.id = 'discTwo' 
-	discThree.id = 'discThree'
-	discFour.id = 'discFour'
-	document.querySelector('#towerOne').appendChild(discOne)
-	document.querySelector('#towerOne').appendChild(discTwo)
-	document.querySelector('#towerOne').appendChild(discThree)
-	document.querySelector('#towerOne').appendChild(discFour)
-	towerOne.push([discOne, discTwo, discThree, discFour])
+	towerOne.appendChild(discOne)
+	towerOne.appendChild(discTwo)
+	towerOne.appendChild(discThree)
+	towerOne.appendChild(discFour)
+	// t1.push([discOne, discTwo, discThree, discFour])
 	console.log(towerOne)
 }
 
 onGameStart()
-//  const startPoint = function() {
-// 	let executed = false
-// 	return function() {
-// 		if (!executed) {
-// 			executed = true
-// 		}
-// 	}
-// }
 
 
 //game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
-
 let reset = document.querySelector('.reset')
 reset.addEventListener('click', function() {
 	location.reload(true)
 })
+
+
+for (let i = 0; i < 3; i++) {
+	let moveDisc = document.querySelectorAll('.towerContainer')[i]
+	moveDisc.addEventListener('click', function() {
+		console.log(`${this.id}`)
+	// if readytomove === false
+	// make true
+	if (readyToMove === false) {
+		readyToMove = true
+		towerOne.removeChild(discOne) //need to grab by first child
+	} else if (readyToMove === true) {
+		// do move logic
+		
+	} else {
+		readyToMove === false
+	}
+
+	})
+}		
+
+		
+
+		// else
+		// make false
+
+
+// 		towerOne.shift() 
+// 		`${this.id}`.addEventListener('click', function() {
+// 			towerTwo.unshift()
+// 		})
+
+		//event listener for second click?
 
 
 
@@ -56,29 +80,6 @@ reset.addEventListener('click', function() {
 
 
 // removeChild ---> Google it
-//once game starts set towerOne array to [discOne etc]
-
-
-
-
-//why is onGameStart still running
-
-
- 
-
-
-
-// numberOfRings.addEventListener('click', function() {
-// 	let newDiscs = input.value
-// 	discs = newDiscs
-// })
-
-// function setDiscs() {
-
-// }
-
-
-// Game moves = push piece from one array to the next
 
 
 //logic to compare size of the ring being moved vs the ring it's being placed on

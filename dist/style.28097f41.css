@@ -33,18 +33,20 @@ body #gameboard {
   width: 700px;
 }
 body .towerContainer {
+  display: flex;
   position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  bottom: 28px;
   margin: 0 auto;
   width: 33.33333%;
   height: 180px;
-  border: 1px solid black;
-  display: inline-block;
   flex-direction: column;
 }
 body .towerContainer .discs {
-  position: absolute;
   bottom: 28px;
-  background-image: linear-gradient(to right, #6e6464, #3a3a3a, black, #e1e1e1, #5b5959, #6e6464, #8a8484, white, #8e8e8e);
+  margin-top: 4px;
+  background-image: linear-gradient(to right, #646d6e, #636363, #e1e1e1, #484d5b, #64656e, #8a8484, white, darkgray);
   height: 15px;
   border: 2px #aba8a8;
   border-style: groove;

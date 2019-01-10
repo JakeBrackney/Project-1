@@ -105,59 +105,64 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"../js/script.js":[function(require,module,exports) {
-// rings, array?
-// let numberOfRings = document.querySelector('#discQty')
-// let setDifficulty = document.querySelector('.setDifficulty')
-// let discs = document.querySelector('.discs')
-var towerOne = [];
-var towerTwo = [];
-var towerThree = [];
-var button = document.querySelectorAll('button');
+var towerOne = document.querySelector('#towerOne');
+var towerTwo = document.querySelector('#towerTwo');
+var towerThree = document.querySelector('#towerThree'); // let t1 = []
+// let t2 = []
+// let t3 = []
+
+var discOne = document.createElement('div');
+var discTwo = document.createElement('div');
+var discThree = document.createElement('div');
+var discFour = document.createElement('div');
+discOne.className = 'discs';
+discTwo.className = 'discs';
+discThree.className = 'discs';
+discFour.className = 'discs';
+discOne.id = 'discOne';
+discTwo.id = 'discTwo';
+discThree.id = 'discThree';
+discFour.id = 'discFour';
+var readyToMove = false;
 
 function onGameStart() {
-  var discOne = document.createElement('div');
-  var discTwo = document.createElement('div');
-  var discThree = document.createElement('div');
-  var discFour = document.createElement('div');
-  discOne.className = 'discs';
-  discTwo.className = 'discs';
-  discThree.className = 'discs';
-  discFour.className = 'discs';
-  discOne.id = 'discOne';
-  discTwo.id = 'discTwo';
-  discThree.id = 'discThree';
-  discFour.id = 'discFour';
-  document.querySelector('#towerOne').appendChild(discOne);
-  document.querySelector('#towerOne').appendChild(discTwo);
-  document.querySelector('#towerOne').appendChild(discThree);
-  document.querySelector('#towerOne').appendChild(discFour);
-  towerOne.push([discOne, discTwo, discThree, discFour]);
+  towerOne.appendChild(discOne);
+  towerOne.appendChild(discTwo);
+  towerOne.appendChild(discThree);
+  towerOne.appendChild(discFour); // t1.push([discOne, discTwo, discThree, discFour])
+
   console.log(towerOne);
 }
 
-onGameStart(); //  const startPoint = function() {
-// 	let executed = false
-// 	return function() {
-// 		if (!executed) {
-// 			executed = true
-// 		}
-// 	}
-// }
-//game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
+onGameStart(); //game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
 
 var reset = document.querySelector('.reset');
 reset.addEventListener('click', function () {
   location.reload(true);
-}); // removeChild ---> Google it
-//once game starts set towerOne array to [discOne etc]
-//why is onGameStart still running
-// numberOfRings.addEventListener('click', function() {
-// 	let newDiscs = input.value
-// 	discs = newDiscs
-// })
-// function setDiscs() {
-// }
-// Game moves = push piece from one array to the next
+});
+
+for (var i = 0; i < 3; i++) {
+  var moveDisc = document.querySelectorAll('.towerContainer')[i];
+  moveDisc.addEventListener('click', function () {
+    console.log("".concat(this.id)); // if readytomove === false
+    // make true
+
+    if (readyToMove === false) {
+      readyToMove = true;
+      towerOne.removeChild(discOne); //need to grab by first child
+    } else if (readyToMove === true) {// do move logic
+    } else {
+      readyToMove === false;
+    }
+  });
+} // else
+// make false
+// 		towerOne.shift() 
+// 		`${this.id}`.addEventListener('click', function() {
+// 			towerTwo.unshift()
+// 		})
+//event listener for second click?
+// removeChild ---> Google it
 //logic to compare size of the ring being moved vs the ring it's being placed on
 // if (ring1 < ring2) {
 // }
@@ -197,7 +202,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62118" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62543" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
