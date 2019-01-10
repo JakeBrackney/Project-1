@@ -64,19 +64,3 @@ body .towerContainer #discThree {
 body .towerContainer #discFour {
   width: 186px;
 }
-
-.buttonHouse {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-}
-.buttonHouse .moveControls {
-  padding: 10px 50px 10px 50px;
-}
-.buttonHouse .moveControls button {
-  margin: 0 auto;
-  font-family: "Cultive Mono", monospace;
-  color: #514343;
-  height: 20px;
-  width: 50px;
-}

@@ -2,9 +2,9 @@ let towerOne = document.querySelector('#towerOne')
 let towerTwo = document.querySelector('#towerTwo')
 let towerThree = document.querySelector('#towerThree')
 
-// let t1 = []
-// let t2 = []
-// let t3 = []
+let t1 = []
+let t2 = []
+let t3 = []
 
 let discOne = document.createElement('div')
 let discTwo = document.createElement('div')
@@ -27,11 +27,11 @@ function onGameStart() {
 	towerOne.appendChild(discThree)
 	towerOne.appendChild(discFour)
 	// t1.push([discOne, discTwo, discThree, discFour])
-	console.log(towerOne)
+	// console.log(towerOne)
 }
 
 onGameStart()
-
+// console.log(document.querySelector('#towerOne').childNodes[0])
 
 //game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
 let reset = document.querySelector('.reset')
@@ -42,15 +42,14 @@ reset.addEventListener('click', function() {
 
 for (let i = 0; i < 3; i++) {
 	let moveDisc = document.querySelectorAll('.towerContainer')[i]
+	let discs = document.querySelectorAll('.discs')[i]
 	moveDisc.addEventListener('click', function() {
-		console.log(`${this.id}`)
-	// if readytomove === false
-	// make true
+		// console.log(`${this.id}`)
 	if (readyToMove === false) {
 		readyToMove = true
-		towerOne.removeChild(discOne) //need to grab by first child
+		towerOne.removeChild(discs)[i] //need to grab by first child
 	} else if (readyToMove === true) {
-		// do move logic
+		moveDisc.appendChild(discs)//tower one, tower two)
 		
 	} else {
 		readyToMove === false
@@ -59,6 +58,9 @@ for (let i = 0; i < 3; i++) {
 	})
 }		
 
+//get discOne to move including separating towers by ID
+// function to identify which disc is on top
+// if/else to verify size of disc 
 		
 
 		// else

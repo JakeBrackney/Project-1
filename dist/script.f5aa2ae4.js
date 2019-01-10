@@ -107,10 +107,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"../js/script.js":[function(require,module,exports) {
 var towerOne = document.querySelector('#towerOne');
 var towerTwo = document.querySelector('#towerTwo');
-var towerThree = document.querySelector('#towerThree'); // let t1 = []
-// let t2 = []
-// let t3 = []
-
+var towerThree = document.querySelector('#towerThree');
+var t1 = [];
+var t2 = [];
+var t3 = [];
 var discOne = document.createElement('div');
 var discTwo = document.createElement('div');
 var discThree = document.createElement('div');
@@ -130,32 +130,39 @@ function onGameStart() {
   towerOne.appendChild(discTwo);
   towerOne.appendChild(discThree);
   towerOne.appendChild(discFour); // t1.push([discOne, discTwo, discThree, discFour])
-
-  console.log(towerOne);
+  // console.log(towerOne)
 }
 
-onGameStart(); //game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
+onGameStart(); // console.log(document.querySelector('#towerOne').childNodes[0])
+//game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
 
 var reset = document.querySelector('.reset');
 reset.addEventListener('click', function () {
   location.reload(true);
 });
 
-for (var i = 0; i < 3; i++) {
+var _loop = function _loop(i) {
   var moveDisc = document.querySelectorAll('.towerContainer')[i];
+  var discs = document.querySelectorAll('.discs')[i];
   moveDisc.addEventListener('click', function () {
-    console.log("".concat(this.id)); // if readytomove === false
-    // make true
-
+    // console.log(`${this.id}`)
     if (readyToMove === false) {
       readyToMove = true;
-      towerOne.removeChild(discOne); //need to grab by first child
-    } else if (readyToMove === true) {// do move logic
+      towerOne.removeChild(discs)[i]; //need to grab by first child
+    } else if (readyToMove === true) {
+      moveDisc.appendChild(discs); //tower one, tower two)
     } else {
       readyToMove === false;
     }
   });
-} // else
+};
+
+for (var i = 0; i < 3; i++) {
+  _loop(i);
+} //get discOne to move including separating towers by ID
+// function to identify which disc is on top
+// if/else to verify size of disc 
+// else
 // make false
 // 		towerOne.shift() 
 // 		`${this.id}`.addEventListener('click', function() {
@@ -202,7 +209,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62543" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50344" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
