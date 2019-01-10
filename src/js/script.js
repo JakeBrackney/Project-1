@@ -41,15 +41,16 @@ reset.addEventListener('click', function() {
 
 
 for (let i = 0; i < 3; i++) {
-	let moveDisc = document.querySelectorAll('.towerContainer')[i]
+	let moveDisc = document.querySelectorAll('.towerContainer')[i] //event.currentTarget or event.target
 	let discs = document.querySelectorAll('.discs')[i]
-	moveDisc.addEventListener('click', function() {
+	moveDisc.addEventListener('click', function(evt) {
+		console.log(evt.currentTarget)
 		// console.log(`${this.id}`)
 	if (readyToMove === false) {
 		readyToMove = true
-		towerOne.removeChild(discs)[i] //need to grab by first child
+		moveDisc.removeChild(discs)[0] //need to grab by first child
 	} else if (readyToMove === true) {
-		moveDisc.appendChild(discs)//tower one, tower two)
+		discs.insertBefore(discs, evt.currentTarget)//tower one, tower two)
 		
 	} else {
 		readyToMove === false

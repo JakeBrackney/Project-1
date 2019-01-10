@@ -142,15 +142,17 @@ reset.addEventListener('click', function () {
 });
 
 var _loop = function _loop(i) {
-  var moveDisc = document.querySelectorAll('.towerContainer')[i];
+  var moveDisc = document.querySelectorAll('.towerContainer')[i]; //event.currentTarget or event.target
+
   var discs = document.querySelectorAll('.discs')[i];
-  moveDisc.addEventListener('click', function () {
-    // console.log(`${this.id}`)
+  moveDisc.addEventListener('click', function (evt) {
+    console.log(evt.currentTarget); // console.log(`${this.id}`)
+
     if (readyToMove === false) {
       readyToMove = true;
-      towerOne.removeChild(discs)[i]; //need to grab by first child
+      moveDisc.removeChild(discs)[0]; //need to grab by first child
     } else if (readyToMove === true) {
-      moveDisc.appendChild(discs); //tower one, tower two)
+      discs.insertBefore(discs, evt.currentTarget); //tower one, tower two)
     } else {
       readyToMove === false;
     }
@@ -209,7 +211,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50344" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62561" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
