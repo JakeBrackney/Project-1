@@ -119,56 +119,42 @@ function onGameStart() {
   var discTwo = document.createElement('div');
   var discThree = document.createElement('div');
   var discFour = document.createElement('div');
-  var discFive = document.createElement('div');
   discOne.className = 'discs';
   discTwo.className = 'discs';
   discThree.className = 'discs';
   discFour.className = 'discs';
-  discFive.className = 'discs';
   discOne.id = 'discOne';
   discTwo.id = 'discTwo';
   discThree.id = 'discThree';
   discFour.id = 'discFour';
-  discFive.id = 'discFive';
   document.querySelector('#towerOne').appendChild(discOne);
   document.querySelector('#towerOne').appendChild(discTwo);
   document.querySelector('#towerOne').appendChild(discThree);
   document.querySelector('#towerOne').appendChild(discFour);
-  document.querySelector('#towerOne').appendChild(discFive);
-  towerOne.push([discOne, discTwo, discThree, discFour, discFive]);
+  towerOne.push([discOne, discTwo, discThree, discFour]);
   console.log(towerOne);
 }
 
-onGameStart();
-
-var startPoint = function startPoint() {
-  var executed = false;
-  return function () {
-    if (!executed) {
-      executed = true;
-    }
-  };
-}; // function setDifficulty() {
+onGameStart(); //  const startPoint = function() {
+// 	let executed = false
+// 	return function() {
+// 		if (!executed) {
+// 			executed = true
+// 		}
+// 	}
 // }
-// removeChild ---> Google it
+//game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
+
+var reset = document.querySelector('.reset');
+reset.addEventListener('click', function () {
+  location.reload(true);
+}); // removeChild ---> Google it
 //once game starts set towerOne array to [discOne etc]
 //why is onGameStart still running
-// for (let i = 0; i < button.length; i++) {
-// 	button[i].addEventListener('click', function(evt) {
-// 		evt.preventDefault
-// 		console.log('Clicked!')
-// 		towerOne.shift[0]
-// 	})
-// }
 // numberOfRings.addEventListener('click', function() {
 // 	let newDiscs = input.value
 // 	discs = newDiscs
 // })
-// for (let i = 0; i < 8; i++) {
-// 	let discsInPlay = document.createElement('div')
-// 	discsInPlay.className = '.discs'
-// 	document.getElementsByClassName('.towerOne')[0].appendChild(discsInPlay).innerHTML
-// }
 // function setDiscs() {
 // }
 // Game moves = push piece from one array to the next
@@ -211,7 +197,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52316" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62118" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

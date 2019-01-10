@@ -14,40 +14,45 @@ function onGameStart() {
 	let discTwo = document.createElement('div')
 	let discThree = document.createElement('div')
 	let discFour = document.createElement('div')
-	let discFive = document.createElement('div')
 	discOne.className = 'discs'
 	discTwo.className = 'discs'
 	discThree.className = 'discs'
 	discFour.className = 'discs'
-	discFive.className = 'discs'
 	discOne.id = 'discOne'
-	discTwo.id = 'discTwo'
+	discTwo.id = 'discTwo' 
 	discThree.id = 'discThree'
 	discFour.id = 'discFour'
-	discFive.id = 'discFive'
 	document.querySelector('#towerOne').appendChild(discOne)
 	document.querySelector('#towerOne').appendChild(discTwo)
 	document.querySelector('#towerOne').appendChild(discThree)
 	document.querySelector('#towerOne').appendChild(discFour)
-	document.querySelector('#towerOne').appendChild(discFive)
-	towerOne.push([discOne, discTwo, discThree, discFour, discFive])
+	towerOne.push([discOne, discTwo, discThree, discFour])
 	console.log(towerOne)
 }
 
- onGameStart()
- 
- const startPoint = function() {
-	let executed = false
-	return function() {
-		if (!executed) {
-			executed = true
-		}
-	}
-}
-
-// function setDifficulty() {
-
+onGameStart()
+//  const startPoint = function() {
+// 	let executed = false
+// 	return function() {
+// 		if (!executed) {
+// 			executed = true
+// 		}
+// 	}
 // }
+
+
+//game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
+
+let reset = document.querySelector('.reset')
+reset.addEventListener('click', function() {
+	location.reload(true)
+})
+
+
+
+
+
+
 
 
 // removeChild ---> Google it
@@ -58,14 +63,6 @@ function onGameStart() {
 
 //why is onGameStart still running
 
-// for (let i = 0; i < button.length; i++) {
-// 	button[i].addEventListener('click', function(evt) {
-// 		evt.preventDefault
-// 		console.log('Clicked!')
-// 		towerOne.shift[0]
-// 	})
-// }
-
 
  
 
@@ -75,12 +72,6 @@ function onGameStart() {
 // 	let newDiscs = input.value
 // 	discs = newDiscs
 // })
-
-// for (let i = 0; i < 8; i++) {
-// 	let discsInPlay = document.createElement('div')
-// 	discsInPlay.className = '.discs'
-// 	document.getElementsByClassName('.towerOne')[0].appendChild(discsInPlay).innerHTML
-// }
 
 // function setDiscs() {
 

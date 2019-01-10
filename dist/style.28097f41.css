@@ -17,89 +17,61 @@ body .controls {
 body .controls form {
   text-align: center;
 }
-body .controls form input {
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  outline: none;
-  height: 20px;
-  font-size: 15px;
-  font-family: "Cultive Mono", monospace;
-}
 body .controls form button {
-  display: block;
-  margin: 0 auto;
   font-family: "Cultive Mono", monospace;
   color: #514343;
 }
 body #gameboard {
+  display: flex;
+  align-items: flex-end;
   background-image: url("towers.f8a9441b.png");
-  background-size: contain;
+  background-size: 90%;
   background-repeat: no-repeat;
   background-position: bottom;
+  margin: 0 auto;
+  height: 240px;
+  width: 700px;
+}
+body .towerContainer {
   position: relative;
   margin: 0 auto;
-  height: 400px;
-  width: 800px;
-}
-body #gameboard .row {
-  max-width: 100%;
-  max-height: 100%;
-}
-body #gameboard .row .towerContainer {
   width: 33.33333%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
+  height: 180px;
   border: 1px solid black;
+  display: inline-block;
+  flex-direction: column;
 }
-body #gameboard .row {
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
+body .towerContainer .discs {
   position: absolute;
-  bottom: 10px;
-}
-body #gameboard .row .discs {
-  position: relative;
   bottom: 28px;
-  margin-top: 8px;
   background-image: linear-gradient(to right, #6e6464, #3a3a3a, black, #e1e1e1, #5b5959, #6e6464, #8a8484, white, #8e8e8e);
   height: 15px;
   border: 2px #aba8a8;
   border-style: groove;
   border-radius: 30%;
-  z-index: 20;
 }
-body #gameboard .row #discOne {
+body .towerContainer #discOne {
   width: 66px;
-  left: 68px;
 }
-body #gameboard .row #discTwo {
+body .towerContainer #discTwo {
   width: 106px;
-  left: 48px;
 }
-body #gameboard .row #discThree {
+body .towerContainer #discThree {
   width: 146px;
-  left: 28px;
 }
-body #gameboard .row #discFour {
+body .towerContainer #discFour {
   width: 186px;
-  left: 8px;
 }
-body #gameboard .row #discFive {
-  width: 226px;
-  left: -8px;
-}
-body .buttonHouse {
+
+.buttonHouse {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
 }
-body .buttonHouse .moveControls {
+.buttonHouse .moveControls {
   padding: 10px 50px 10px 50px;
 }
-body .buttonHouse .moveControls button {
+.buttonHouse .moveControls button {
   margin: 0 auto;
   font-family: "Cultive Mono", monospace;
   color: #514343;
