@@ -150,28 +150,22 @@ var _loop = function _loop(i) {
 
     if (readyToMove === false) {
       readyToMove = true;
-      moveDisc.removeChild(discs)[0]; //need to grab by first child
+      evt.currentTarget.removeChild(discs); //need to grab by first child
     } else if (readyToMove === true) {
-      evt.currentTarget.appendChild(discs); //tower one, tower two)
-    } else {
-      readyToMove === false;
+      evt.currentTarget.insertBefore(discs, moveDisc.children[i]); //tower one, tower two)
+      // } else {
+      // 	readyToMove === false
     }
   });
 };
 
 for (var i = 0; i < 3; i++) {
   _loop(i);
-} //get discOne to move including separating towers by ID
+} // else
+// make false
+//get discOne to move including separating towers by ID
 // function to identify which disc is on top
 // if/else to verify size of disc 
-// else
-// make false
-// 		towerOne.shift() 
-// 		`${this.id}`.addEventListener('click', function() {
-// 			towerTwo.unshift()
-// 		})
-//event listener for second click?
-// removeChild ---> Google it
 //logic to compare size of the ring being moved vs the ring it's being placed on
 // if (ring1 < ring2) {
 // }
@@ -211,7 +205,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50489" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56805" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

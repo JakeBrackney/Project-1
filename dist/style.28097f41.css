@@ -16,10 +16,19 @@ body .controls {
 }
 body .controls form {
   text-align: center;
+  margin-bottom: 20px;
 }
 body .controls form button {
   font-family: "Cultive Mono", monospace;
   color: #514343;
+  padding: 4px 10px;
+  font-size: 20px;
+  border-radius: 30%;
+}
+body .controls form button:focus {
+  color: white;
+  background: #514343;
+  outline: none;
 }
 body #gameboard {
   display: flex;
@@ -45,7 +54,6 @@ body .towerContainer {
 }
 body .towerContainer .discs {
   bottom: 28px;
-  margin-top: 4px;
   background-image: linear-gradient(to right, #535b5c, #858585, #e1e1e1, #484d5b, #64656e, #8a8484, white, darkgray);
   height: 22px;
   border: 2px #aba8a8;

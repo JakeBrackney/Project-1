@@ -48,41 +48,22 @@ for (let i = 0; i < 3; i++) {
 		// console.log(`${this.id}`)
 	if (readyToMove === false) {
 		readyToMove = true
-		moveDisc.removeChild(discs)[0] //need to grab by first child
+		evt.currentTarget.removeChild(discs) //need to grab by first child
 	} else if (readyToMove === true) {
-		evt.currentTarget.appendChild(discs)//tower one, tower two)
-		
-	} else {
-		readyToMove === false
+		evt.currentTarget.insertBefore(discs, moveDisc.children[i])//tower one, tower two)
+	// } else {
+	// 	readyToMove === false
 	}
 
 	})
 }		
 
-//get discOne to move including separating towers by ID
-// function to identify which disc is on top
-// if/else to verify size of disc 
-		
-
 		// else
 		// make false
 
-
-// 		towerOne.shift() 
-// 		`${this.id}`.addEventListener('click', function() {
-// 			towerTwo.unshift()
-// 		})
-
-		//event listener for second click?
-
-
-
-
-
-
-
-
-// removeChild ---> Google it
+//get discOne to move including separating towers by ID
+// function to identify which disc is on top
+// if/else to verify size of disc 
 
 
 //logic to compare size of the ring being moved vs the ring it's being placed on
