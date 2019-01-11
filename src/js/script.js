@@ -1,12 +1,6 @@
-import { read } from "fs";
-
 let towerOne = document.querySelector('#towerOne')
 let towerTwo = document.querySelector('#towerTwo')
 let towerThree = document.querySelector('#towerThree')
-
-let t1 = []
-let t2 = []
-let t3 = []
 
 let discOne = document.createElement('div')
 let discTwo = document.createElement('div')
@@ -23,7 +17,6 @@ discFour.id = 'discFour'
 
 let readyToMove = false;
 let currentDisc = undefined
-// let towerBox = document.querySelectorAll('.towerContainer')[0]
 
 
 function onGameStart() {
