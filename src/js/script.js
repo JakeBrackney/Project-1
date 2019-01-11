@@ -24,7 +24,6 @@ function onGameStart() {
 	towerOne.appendChild(discTwo)
 	towerOne.appendChild(discThree)
 	towerOne.appendChild(discFour)
-
 }
 
 onGameStart()
