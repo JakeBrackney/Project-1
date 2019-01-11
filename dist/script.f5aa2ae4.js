@@ -120,9 +120,9 @@ discOne.id = 'discOne';
 discTwo.id = 'discTwo';
 discThree.id = 'discThree';
 discFour.id = 'discFour';
-var readyToMove = false; // given to me by Jimmy
+var readyToMove = false; // given to me by Jimmy, to operate as a switch
 
-var currentDisc = undefined;
+var currentDisc = "";
 
 function onGameStart() {
   towerOne.appendChild(discOne);
@@ -135,34 +135,35 @@ onGameStart(); //game reset button - refreshes page -- https://developer.mozilla
 
 var reset = document.querySelector('.reset');
 reset.addEventListener('click', function () {
-  location.reload(true);
+  return location.reload(true);
 }); // Selects the top disc on whichever tower
 
-var pickDisc = function pickDisc(tower) {
-  currentDisc = tower.querySelectorAll('.discs')[0];
-  currentDisc.style.background = 'rgb(75, 96, 102)';
+var pickDisc = function pickDisc(disc) {
+  currentDisc = disc.querySelectorAll('.discs')[0]; // [0] selects the index of the child element within the parent
+
+  currentDisc.style.background = 'linear-gradient(to right, rgb(104, 68, 68), rgb(133, 133, 133), rgb(225, 225, 225), rgb(74, 26, 26), rgb(111, 43, 43), rgb(137, 84, 84), rgb(255, 255, 255), rgb(169, 169, 169))';
   readyToMove = true;
 }; // deselects a disc if you choose not to move it
 
 
 var unpickDisc = function unpickDisc() {
   currentDisc.style.background = 'linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169))';
-  currentDisc = undefined;
+  currentDisc = "";
   readyToMove = false;
 }; //moves disc to target tower
 
 
-var moveDisc = function moveDisc(tower) {
-  tower.insertBefore(currentDisc, tower.children[0]);
+var moveDisc = function moveDisc(disc) {
+  disc.insertBefore(currentDisc, disc.children[0]);
   currentDisc.style.background = 'linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169))';
-  currentDisc = undefined;
+  currentDisc = "";
   readyToMove = false;
 }; // see if all discs are on Tower Three
 
 
 var checkForWin = function checkForWin() {
   if (towerThree.childElementCount === document.querySelectorAll('.discs').length) {
-    alert('You got it!');
+    alert('You got it! ( ͡° ͜ʖ ͡° )');
   }
 }; // function for evaluating movement and legal moves for towerOne
 
@@ -172,13 +173,12 @@ towerOne.addEventListener('click', function () {
     pickDisc(towerOne);
   } else if (readyToMove === true && currentDisc.parentElement.id === 'towerOne') {
     unpickDisc();
-  } else if (readyToMove === true && towerOne.childElementCount == 0) {
+  } else if (readyToMove === true && towerOne.childElementCount === 0) {
+    // allows a disc to be placed on an empty tower
     moveDisc(towerOne);
   } else if (readyToMove === true && currentDisc.clientWidth < towerOne.children[0].clientWidth) {
+    // clientWidth accesses the width set in css for each child
     moveDisc(towerOne);
-    checkForWin();
-  } else {
-    alert('Try again.');
   }
 }); // function for evaluating movement and legal moves for towerTwo
 
@@ -187,13 +187,10 @@ towerTwo.addEventListener('click', function () {
     pickDisc(towerTwo);
   } else if (readyToMove === true && currentDisc.parentElement.id === 'towerTwo') {
     unpickDisc();
-  } else if (readyToMove === true && towerTwo.childElementCount == 0) {
+  } else if (readyToMove === true && towerTwo.childElementCount === 0) {
     moveDisc(towerTwo);
   } else if (readyToMove === true && currentDisc.clientWidth < towerTwo.children[0].clientWidth) {
     moveDisc(towerTwo);
-    checkForWin();
-  } else {
-    alert('Try again.');
   }
 }); // function for evaluating movement and legal moves for towerThree
 
@@ -202,14 +199,13 @@ towerThree.addEventListener('click', function () {
     pickDisc(towerThree);
   } else if (readyToMove === true && currentDisc.parentElement.id === 'towerThree') {
     unpickDisc();
-  } else if (readyToMove === true && towerThree.childElementCount == 0) {
+  } else if (readyToMove === true && towerThree.childElementCount === 0) {
     moveDisc(towerThree);
   } else if (readyToMove === true && currentDisc.clientWidth < towerThree.children[0].clientWidth) {
     moveDisc(towerThree);
-    checkForWin();
-  } else {
-    alert('Try again.');
   }
+
+  checkForWin();
 });
 },{}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -238,7 +234,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52030" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54127" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
