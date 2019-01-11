@@ -37,8 +37,8 @@ reset.addEventListener('click', function() {
 })
 
 // Selects the top disc on whichever tower
-let pickDisc = function(disc) {
-	currentDisc = disc.querySelectorAll('.discs')[0]
+let pickDisc = function(tower) {
+	currentDisc = tower.querySelectorAll('.discs')[0]
 	currentDisc.style.background = 'rgb(75, 96, 102)'
 	readyToMove = true
 }
@@ -51,8 +51,8 @@ let unpickDisc = function() {
 }
 
 //moves disc to target tower
-let moveDisc = function(disc) {
-	disc.insertBefore(currentDisc, tower.children[0])
+let moveDisc = function(tower) {
+	tower.insertBefore(currentDisc, tower.children[0])
 	currentDisc.style.background = 'linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169))'
 	currentDisc = undefined
 	readyToMove = false

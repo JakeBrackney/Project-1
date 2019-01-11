@@ -104,19 +104,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
-
-},{}],"../js/script.js":[function(require,module,exports) {
-"use strict";
-
-var _fs = require("fs");
-
+})({"../js/script.js":[function(require,module,exports) {
 var towerOne = document.querySelector('#towerOne');
 var towerTwo = document.querySelector('#towerTwo');
 var towerThree = document.querySelector('#towerThree');
-var t1 = [];
-var t2 = [];
-var t3 = [];
 var discOne = document.createElement('div');
 var discTwo = document.createElement('div');
 var discThree = document.createElement('div');
@@ -129,8 +120,9 @@ discOne.id = 'discOne';
 discTwo.id = 'discTwo';
 discThree.id = 'discThree';
 discFour.id = 'discFour';
-var readyToMove = false;
-var currentDisc = undefined; // let towerBox = document.querySelectorAll('.towerContainer')[0]
+var readyToMove = false; // given to me by Jimmy
+
+var currentDisc = undefined;
 
 function onGameStart() {
   towerOne.appendChild(discOne);
@@ -219,7 +211,7 @@ towerThree.addEventListener('click', function () {
     alert('Try again.');
   }
 });
-},{"fs":"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/_empty.js"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -246,7 +238,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55680" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63522" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
