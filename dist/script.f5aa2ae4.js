@@ -104,7 +104,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"../js/script.js":[function(require,module,exports) {
+})({"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
+
+},{}],"../js/script.js":[function(require,module,exports) {
+"use strict";
+
+var _fs = require("fs");
+
 var towerOne = document.querySelector('#towerOne');
 var towerTwo = document.querySelector('#towerTwo');
 var towerThree = document.querySelector('#towerThree');
@@ -124,61 +130,96 @@ discTwo.id = 'discTwo';
 discThree.id = 'discThree';
 discFour.id = 'discFour';
 var readyToMove = false;
+var currentDisc = undefined; // let towerBox = document.querySelectorAll('.towerContainer')[0]
 
 function onGameStart() {
   towerOne.appendChild(discOne);
   towerOne.appendChild(discTwo);
   towerOne.appendChild(discThree);
-  towerOne.appendChild(discFour); // t1.push([discOne, discTwo, discThree, discFour])
-  // console.log(towerOne)
+  towerOne.appendChild(discFour);
 }
 
-onGameStart(); // console.log(document.querySelector('#towerOne').childNodes[0])
-//game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
+onGameStart(); //game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
 
 var reset = document.querySelector('.reset');
 reset.addEventListener('click', function () {
   location.reload(true);
+}); // Selects the top disc on whichever tower
+
+var pickDisc = function pickDisc(tower) {
+  currentDisc = tower.querySelectorAll('.discs')[0];
+  currentDisc.style.background = 'rgb(75, 96, 102)';
+  readyToMove = true;
+}; // deselects a disc if you choose not to move it
+
+
+var unpickDisc = function unpickDisc() {
+  currentDisc.style.background = 'linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169))';
+  currentDisc = undefined;
+  readyToMove = false;
+}; //moves disc to target tower
+
+
+var moveDisc = function moveDisc(tower) {
+  tower.insertBefore(currentDisc, tower.children[0]);
+  currentDisc.style.background = 'linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169))';
+  currentDisc = undefined;
+  readyToMove = false;
+}; // see if all discs are on Tower Three
+
+
+var checkForWin = function checkForWin() {
+  if (towerThree.childElementCount === document.querySelectorAll('.discs').length) {
+    alert('You got it!');
+  }
+}; // function for evaluating movement and legal moves for towerOne
+
+
+towerOne.addEventListener('click', function () {
+  if (towerOne.querySelectorAll('.discs').length > 0 && readyToMove === false) {
+    pickDisc(towerOne);
+  } else if (readyToMove === true && currentDisc.parentElement.id === 'towerOne') {
+    unpickDisc();
+  } else if (readyToMove === true && towerOne.childElementCount == 0) {
+    moveDisc(towerOne);
+  } else if (readyToMove === true && currentDisc.clientWidth < towerOne.children[0].clientWidth) {
+    moveDisc(towerOne);
+    checkForWin();
+  } else {
+    alert('Try again.');
+  }
+}); // function for evaluating movement and legal moves for towerTwo
+
+towerTwo.addEventListener('click', function () {
+  if (towerTwo.querySelectorAll('.discs').length > 0 && readyToMove === false) {
+    pickDisc(towerTwo);
+  } else if (readyToMove === true && currentDisc.parentElement.id === 'towerTwo') {
+    unpickDisc();
+  } else if (readyToMove === true && towerTwo.childElementCount == 0) {
+    moveDisc(towerTwo);
+  } else if (readyToMove === true && currentDisc.clientWidth < towerTwo.children[0].clientWidth) {
+    moveDisc(towerTwo);
+    checkForWin();
+  } else {
+    alert('Try again.');
+  }
+}); // function for evaluating movement and legal moves for towerThree
+
+towerThree.addEventListener('click', function () {
+  if (towerThree.querySelectorAll('.discs').length > 0 && readyToMove === false) {
+    pickDisc(towerThree);
+  } else if (readyToMove === true && currentDisc.parentElement.id === 'towerThree') {
+    unpickDisc();
+  } else if (readyToMove === true && towerThree.childElementCount == 0) {
+    moveDisc(towerThree);
+  } else if (readyToMove === true && currentDisc.clientWidth < towerThree.children[0].clientWidth) {
+    moveDisc(towerThree);
+    checkForWin();
+  } else {
+    alert('Try again.');
+  }
 });
-
-var _loop = function _loop(i) {
-  var moveDisc = document.querySelectorAll('.towerContainer')[i]; //event.currentTarget or event.target
-
-  var discs = document.querySelectorAll('.discs')[i];
-  moveDisc.addEventListener('click', function (evt) {
-    console.log(evt.currentTarget); // console.log(`${this.id}`)
-
-    if (readyToMove === false) {
-      readyToMove = true;
-      evt.currentTarget.removeChild(discs); //need to grab by first child
-    } else if (readyToMove === true) {
-      evt.currentTarget.insertBefore(discs, moveDisc.children[i]); //tower one, tower two)
-      // } else {
-      // 	readyToMove === false
-    }
-  });
-};
-
-for (var i = 0; i < 3; i++) {
-  _loop(i);
-} // else
-// make false
-//get discOne to move including separating towers by ID
-// function to identify which disc is on top
-// if/else to verify size of disc 
-//logic to compare size of the ring being moved vs the ring it's being placed on
-// if (ring1 < ring2) {
-// }
-// logic to evaluate win status (all rings on towerThree)
-// function gameOver() {
-//     if (towerThree = rings) {
-//     console.log('Winner!')
-//     }
-// }
-// Bonus: move counter:
-// Bonus: stopwatch
-// Bonus: Add rings
-},{}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"fs":"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/_empty.js"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -205,7 +246,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56805" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55680" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

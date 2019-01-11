@@ -51,6 +51,7 @@ body .towerContainer {
   width: 33.33333%;
   height: 180px;
   flex-direction: column;
+  border-radius: 30%;
 }
 body .towerContainer .discs {
   bottom: 28px;
