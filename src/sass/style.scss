@@ -20,6 +20,7 @@ body {
 				color: rgb(81, 67, 67);
 				padding: 4px 10px;
 				font-size: 20px;
+				border-style: groove;
 				border-radius: 30%;
 			}
 			button:focus {
@@ -56,7 +57,7 @@ body {
 				border-radius: 30%;
 				.discs {
 					bottom: 28px;
-					margin-top: 6px;
+					margin-top: 2px;
 					background-image: linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169));
 					height: 22px;
 					border: 2px rgb(171, 168, 168);
@@ -68,15 +69,15 @@ body {
 					// margin-left: 20px;
 				}
 				#discTwo {
-					width: 106px;
+					width: 96px;
 					// margin-left: 20px;
 				}
 				#discThree {
-					width: 146px;
+					width: 126px;
 					// margin-left: 12px;
 				}
 				#discFour {
-					width: 186px;
+					width: 156px;
 				}
 			}
 		}

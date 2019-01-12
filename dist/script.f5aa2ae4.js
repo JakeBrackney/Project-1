@@ -131,41 +131,38 @@ function onGameStart() {
   towerOne.appendChild(discFour);
 }
 
-onGameStart(); //game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
-
+onGameStart();
 var reset = document.querySelector('.reset');
-reset.addEventListener('click', function () {
-  return location.reload(true);
-}); // Selects the top disc on whichever tower
+reset.addEventListener('click', onGameStart()); // Selects the top disc on whichever tower
 
-var pickDisc = function pickDisc(disc) {
+function pickDisc(disc) {
   currentDisc = disc.querySelectorAll('.discs')[0]; // [0] selects the index of the child element within the parent
 
-  currentDisc.style.background = 'linear-gradient(to right, rgb(104, 68, 68), rgb(133, 133, 133), rgb(225, 225, 225), rgb(74, 26, 26), rgb(111, 43, 43), rgb(137, 84, 84), rgb(255, 255, 255), rgb(169, 169, 169))';
+  currentDisc.style.background = 'linear-gradient(to right, rgb(104, 68, 68), rgb(133, 133, 133), rgb(225, 225, 225), rgb(74, 26, 26), rgb(111, 43, 43), rgb(137, 84, 84), rgb(255, 255, 255), rgb(98, 68, 68))';
   readyToMove = true;
-}; // deselects a disc if you choose not to move it
+} // deselects a disc if you choose not to move it
 
 
-var unpickDisc = function unpickDisc() {
+function unpickDisc() {
   currentDisc.style.background = 'linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169))';
   currentDisc = "";
   readyToMove = false;
-}; //moves disc to target tower
+} //moves disc to target tower
 
 
-var moveDisc = function moveDisc(disc) {
+function moveDisc(disc) {
   disc.insertBefore(currentDisc, disc.children[0]);
   currentDisc.style.background = 'linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169))';
   currentDisc = "";
   readyToMove = false;
-}; // see if all discs are on Tower Three
+} // see if all discs are on Tower Three
 
 
-var checkForWin = function checkForWin() {
+function checkForWin() {
   if (towerThree.childElementCount === document.querySelectorAll('.discs').length) {
     alert('You got it! ( ͡° ͜ʖ ͡° )');
   }
-}; // function for evaluating movement and legal moves for towerOne
+} // function for evaluating movement and legal moves for towerOne
 
 
 towerOne.addEventListener('click', function () {
@@ -234,7 +231,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54127" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61289" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

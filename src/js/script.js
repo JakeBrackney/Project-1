@@ -27,26 +27,25 @@ function onGameStart() {
 
 onGameStart()
 
-//game reset button - refreshes page -- https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
 let reset = document.querySelector('.reset')
-reset.addEventListener('click', () => location.reload(true))
+reset.addEventListener('click', onGameStart())
 
 // Selects the top disc on whichever tower
-let pickDisc = function(disc) {
+function pickDisc(disc) {
 	currentDisc = disc.querySelectorAll('.discs')[0] // [0] selects the index of the child element within the parent
-	currentDisc.style.background = 'linear-gradient(to right, rgb(104, 68, 68), rgb(133, 133, 133), rgb(225, 225, 225), rgb(74, 26, 26), rgb(111, 43, 43), rgb(137, 84, 84), rgb(255, 255, 255), rgb(169, 169, 169))'
+	currentDisc.style.background = 'linear-gradient(to right, rgb(104, 68, 68), rgb(133, 133, 133), rgb(225, 225, 225), rgb(74, 26, 26), rgb(111, 43, 43), rgb(137, 84, 84), rgb(255, 255, 255), rgb(98, 68, 68))'
 	readyToMove = true
 }
 
 // deselects a disc if you choose not to move it
-let unpickDisc = function() {
+function unpickDisc() {
 	currentDisc.style.background = 'linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169))'
 	currentDisc = ""
 	readyToMove = false
 }
 
 //moves disc to target tower
-let moveDisc = function(disc) {
+function moveDisc(disc) {
 	disc.insertBefore(currentDisc, disc.children[0])
 	currentDisc.style.background = 'linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169))'
 	currentDisc = ""
@@ -54,7 +53,7 @@ let moveDisc = function(disc) {
 }
 
 // see if all discs are on Tower Three
-let checkForWin = function() {
+function checkForWin() {
 	if (towerThree.childElementCount === document.querySelectorAll('.discs').length) {
 		alert('You got it! ( ͡° ͜ʖ ͡° )')
 	}

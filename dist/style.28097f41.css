@@ -23,6 +23,7 @@ body .controls form button {
   color: #514343;
   padding: 4px 10px;
   font-size: 20px;
+  border-style: groove;
   border-radius: 30%;
 }
 body .controls form button:focus {
@@ -55,7 +56,7 @@ body .towerContainer {
 }
 body .towerContainer .discs {
   bottom: 28px;
-  margin-top: 6px;
+  margin-top: 2px;
   background-image: linear-gradient(to right, #535b5c, #858585, #e1e1e1, #484d5b, #64656e, #8a8484, white, darkgray);
   height: 22px;
   border: 2px #aba8a8;
@@ -66,11 +67,11 @@ body .towerContainer #discOne {
   width: 66px;
 }
 body .towerContainer #discTwo {
-  width: 106px;
+  width: 96px;
 }
 body .towerContainer #discThree {
-  width: 146px;
+  width: 126px;
 }
 body .towerContainer #discFour {
-  width: 186px;
+  width: 156px;
 }
