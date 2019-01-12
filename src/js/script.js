@@ -17,6 +17,7 @@ discFour.id = 'discFour'
 
 let readyToMove = false; // given to me by Jimmy, to operate as a switch
 let currentDisc = ""
+let moveCount = 0
 
 function onGameStart() {
 	towerOne.appendChild(discOne)
@@ -50,12 +51,13 @@ function moveDisc(disc) {
 	currentDisc.style.background = 'linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169))'
 	currentDisc = ""
 	readyToMove = false
+	moveCount++
 }
 
 // see if all discs are on Tower Three
 function checkForWin() {
 	if (towerThree.childElementCount === document.querySelectorAll('.discs').length) {
-		alert('You got it! ( ͡° ͜ʖ ͡° )')
+		alert('Solved in ' + moveCount + ' moves')
 	}
 }
 
@@ -98,7 +100,3 @@ towerThree.addEventListener('click', function() {
 	}
 	checkForWin()
 })
-
-
-
-
