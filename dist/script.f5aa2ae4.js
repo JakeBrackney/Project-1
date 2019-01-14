@@ -178,6 +178,8 @@ towerOne.addEventListener('click', function () {
   } else if (readyToMove === true && currentDisc.clientWidth < towerOne.children[0].clientWidth) {
     // clientWidth accesses the width set in css for each child
     moveDisc(towerOne);
+  } else if (readyToMove === true && currentDisc.clientWidth > towerOne.children[0].clientWidth) {
+    unpickDisc();
   }
 }); // function for evaluating movement and legal moves for towerTwo
 
@@ -190,6 +192,8 @@ towerTwo.addEventListener('click', function () {
     moveDisc(towerTwo);
   } else if (readyToMove === true && currentDisc.clientWidth < towerTwo.children[0].clientWidth) {
     moveDisc(towerTwo);
+  } else if (readyToMove === true && currentDisc.clientWidth > towerTwo.children[0].clientWidth) {
+    unpickDisc();
   }
 }); // function for evaluating movement and legal moves for towerThree
 
@@ -202,6 +206,8 @@ towerThree.addEventListener('click', function () {
     moveDisc(towerThree);
   } else if (readyToMove === true && currentDisc.clientWidth < towerThree.children[0].clientWidth) {
     moveDisc(towerThree);
+  } else if (readyToMove === true && currentDisc.clientWidth > towerThree.children[0].clientWidth) {
+    unpickDisc();
   }
 
   checkForWin();
@@ -233,7 +239,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61921" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50974" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

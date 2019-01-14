@@ -1,11 +1,11 @@
-let towerOne = document.querySelector('#towerOne')
-let towerTwo = document.querySelector('#towerTwo')
-let towerThree = document.querySelector('#towerThree')
+const towerOne = document.querySelector('#towerOne')
+const towerTwo = document.querySelector('#towerTwo')
+const towerThree = document.querySelector('#towerThree')
 
-let discOne = document.createElement('div')
-let discTwo = document.createElement('div')
-let discThree = document.createElement('div')
-let discFour = document.createElement('div')
+const discOne = document.createElement('div')
+const discTwo = document.createElement('div')
+const discThree = document.createElement('div')
+const discFour = document.createElement('div')
 discOne.className = 'discs'
 discTwo.className = 'discs'
 discThree.className = 'discs'
@@ -28,7 +28,7 @@ function onGameStart() {
 
 onGameStart()
 
-let reset = document.querySelector('.reset')
+const reset = document.querySelector('.reset')
 reset.addEventListener('click', onGameStart())
 
 // Selects the top disc on whichever tower
@@ -71,6 +71,8 @@ towerOne.addEventListener('click', function() {
 		moveDisc(towerOne)
 	} else if ((readyToMove === true) && (currentDisc.clientWidth < towerOne.children[0].clientWidth)) { // clientWidth accesses the width set in css for each child
 		moveDisc(towerOne)
+	} else if ((readyToMove === true) && (currentDisc.clientWidth > towerOne.children[0].clientWidth)) {
+		unpickDisc()
 	}
 })
 
@@ -84,7 +86,9 @@ towerTwo.addEventListener('click', function() {
 		moveDisc(towerTwo)
 	} else if ((readyToMove === true) && (currentDisc.clientWidth < towerTwo.children[0].clientWidth)) { 
 		moveDisc(towerTwo)
-	} 
+	} else if ((readyToMove === true) && (currentDisc.clientWidth > towerTwo.children[0].clientWidth)) {
+		unpickDisc()
+	}
 })
 
 // function for evaluating movement and legal moves for towerThree
@@ -97,6 +101,8 @@ towerThree.addEventListener('click', function() {
 		moveDisc(towerThree)
 	} else if ((readyToMove === true) && (currentDisc.clientWidth < towerThree.children[0].clientWidth)) {
 		moveDisc(towerThree)
+	} else if ((readyToMove === true) && (currentDisc.clientWidth > towerThree.children[0].clientWidth)) {
+		unpickDisc()
 	}
 	checkForWin()
 })
