@@ -57,7 +57,6 @@ body {
 				border-radius: 30%;
 				.discs {
 					bottom: 28px;
-					margin-top: 2px;
 					background-image: linear-gradient(to right, rgb(83, 91, 92), rgb(133, 133, 133), rgb(225, 225, 225), rgb(72, 77, 91), rgb(100, 101, 110), rgb(138, 132, 132), rgb(255, 255, 255), rgb(169, 169, 169));
 					height: 22px;
 					border: 2px rgb(171, 168, 168);
@@ -69,15 +68,30 @@ body {
 					// margin-left: 20px;
 				}
 				#discTwo {
-					width: 96px;
+					width: 86px;
 					// margin-left: 20px;
 				}
 				#discThree {
-					width: 126px;
+					width: 106px;
 					// margin-left: 12px;
 				}
 				#discFour {
-					width: 156px;
+					width: 126px;
+				}
+				#discFive {
+					width: 146px;
+				}
+				#discSix {
+					width: 166px;
+				}
+				#discSeven {
+					width: 186px;
+				}
+				#discEight {
+					width: 206px;
+				}
+				#discNine {
+					width: 226px;
 				}
 			}
 		}

@@ -56,7 +56,6 @@ body .towerContainer {
 }
 body .towerContainer .discs {
   bottom: 28px;
-  margin-top: 2px;
   background-image: linear-gradient(to right, #535b5c, #858585, #e1e1e1, #484d5b, #64656e, #8a8484, white, darkgray);
   height: 22px;
   border: 2px #aba8a8;
@@ -67,11 +66,26 @@ body .towerContainer #discOne {
   width: 66px;
 }
 body .towerContainer #discTwo {
-  width: 96px;
+  width: 86px;
 }
 body .towerContainer #discThree {
-  width: 126px;
+  width: 106px;
 }
 body .towerContainer #discFour {
-  width: 156px;
+  width: 126px;
+}
+body .towerContainer #discFive {
+  width: 146px;
+}
+body .towerContainer #discSix {
+  width: 166px;
+}
+body .towerContainer #discSeven {
+  width: 186px;
+}
+body .towerContainer #discEight {
+  width: 206px;
+}
+body .towerContainer #discNine {
+  width: 226px;
 }

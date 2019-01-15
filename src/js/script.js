@@ -6,14 +6,29 @@ const discOne = document.createElement('div')
 const discTwo = document.createElement('div')
 const discThree = document.createElement('div')
 const discFour = document.createElement('div')
+const discFive = document.createElement('div')
+const discSix = document.createElement('div')
+const discSeven = document.createElement('div')
+const discEight = document.createElement('div')
+const discNine = document.createElement('div')
 discOne.className = 'discs'
 discTwo.className = 'discs'
 discThree.className = 'discs'
 discFour.className = 'discs'
+discFive.className = 'discs'
+discSix.className = 'discs'
+discSeven.className = 'discs'
+discEight.className = 'discs'
+discNine.className = 'discs'
 discOne.id = 'discOne'
 discTwo.id = 'discTwo' 
 discThree.id = 'discThree'
 discFour.id = 'discFour'
+discFive.id = 'discFive'
+discSix.id = 'discSix'
+discSeven.id = 'discSeven'
+discEight.id = 'discEight'
+discNine.id = 'discNine'
 
 let readyToMove = false; // given to me by Jimmy, to operate as a switch
 let currentDisc = ""
@@ -24,6 +39,11 @@ function onGameStart() {
 	towerOne.appendChild(discTwo)
 	towerOne.appendChild(discThree)
 	towerOne.appendChild(discFour)
+	towerOne.appendChild(discFive)
+	towerOne.appendChild(discSix)
+	towerOne.appendChild(discSeven)
+	towerOne.appendChild(discEight)
+	towerOne.appendChild(discNine)
 }
 
 onGameStart()

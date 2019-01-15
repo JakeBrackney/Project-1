@@ -112,14 +112,29 @@ var discOne = document.createElement('div');
 var discTwo = document.createElement('div');
 var discThree = document.createElement('div');
 var discFour = document.createElement('div');
+var discFive = document.createElement('div');
+var discSix = document.createElement('div');
+var discSeven = document.createElement('div');
+var discEight = document.createElement('div');
+var discNine = document.createElement('div');
 discOne.className = 'discs';
 discTwo.className = 'discs';
 discThree.className = 'discs';
 discFour.className = 'discs';
+discFive.className = 'discs';
+discSix.className = 'discs';
+discSeven.className = 'discs';
+discEight.className = 'discs';
+discNine.className = 'discs';
 discOne.id = 'discOne';
 discTwo.id = 'discTwo';
 discThree.id = 'discThree';
 discFour.id = 'discFour';
+discFive.id = 'discFive';
+discSix.id = 'discSix';
+discSeven.id = 'discSeven';
+discEight.id = 'discEight';
+discNine.id = 'discNine';
 var readyToMove = false; // given to me by Jimmy, to operate as a switch
 
 var currentDisc = "";
@@ -130,6 +145,11 @@ function onGameStart() {
   towerOne.appendChild(discTwo);
   towerOne.appendChild(discThree);
   towerOne.appendChild(discFour);
+  towerOne.appendChild(discFive);
+  towerOne.appendChild(discSix);
+  towerOne.appendChild(discSeven);
+  towerOne.appendChild(discEight);
+  towerOne.appendChild(discNine);
 }
 
 onGameStart();
@@ -239,7 +259,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50974" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51212" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
