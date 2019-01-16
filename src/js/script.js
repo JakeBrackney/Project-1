@@ -41,9 +41,9 @@ function onGameStart() {
 	towerOne.appendChild(discFour)
 	towerOne.appendChild(discFive)
 	towerOne.appendChild(discSix)
-	towerOne.appendChild(discSeven)
-	towerOne.appendChild(discEight)
-	towerOne.appendChild(discNine)
+	// towerOne.appendChild(discSeven)
+	// towerOne.appendChild(discEight)
+	// towerOne.appendChild(discNine)
 }
 
 onGameStart()
