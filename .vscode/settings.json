@@ -1,3 +1,4 @@
 {
-    "editor.renderWhitespace": "boundary"
+    "editor.renderWhitespace": "boundary",
+    "liveServer.settings.port": 5501
 }
